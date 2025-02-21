@@ -7,8 +7,18 @@ export class PaymentController {
 
     constructor(private paymentService : PaymentService) {}
 
-    @Post('payment-intent/create')
-    createPaymentIntent(@Body() dto : PaymentRequestDto) {
-        return this.paymentService.createPaymentIntent(dto);
+    @Post('basic')
+    createBasicSubscription(@Body() dto : PaymentRequestDto) {
+        return this.paymentService.createBasicSubscription(dto);
+    }
+
+    @Post('standard')
+    createStandardSubscription(@Body() dto : PaymentRequestDto) {
+        return this.paymentService.createStandardSubscription(dto);
+    }
+    
+    @Post('pro')
+    createProSubscription(@Body() dto : PaymentRequestDto) {
+        return this.paymentService.createProSubscription(dto);
     }
 }
